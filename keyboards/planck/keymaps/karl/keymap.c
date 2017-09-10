@@ -1,4 +1,8 @@
+// INSTRUCTION:
 // docker run -e keymap=karl -e subproject=rev4 -e keyboard=planck --rm -v $('pwd'):/qmk:rw edasque/qmk_firmware
+// dfu-programmer atmega32u4 erase --force
+// dfu-programmer atmega32u4 flash .build/planck_rev4_karl.hex
+// dfu-programmer atmega32u4 reset
 
 #include "planck.h"
 #include "action_layer.h"
@@ -86,20 +90,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case LOWER:
       if (record->event.pressed) {
         layer_on(_LOWER);
-        update_tri_layer(_LOWER, _RAISE, _RAISE);
       } else {
         layer_off(_LOWER);
-        update_tri_layer(_LOWER, _RAISE, _RAISE);
       }
       return false;
       break;
     case RAISE:
       if (record->event.pressed) {
         layer_on(_RAISE);
-        update_tri_layer(_LOWER, _RAISE, _RAISE);
       } else {
         layer_off(_RAISE);
-        update_tri_layer(_LOWER, _RAISE, _RAISE);
       }
       return false;
       break;
