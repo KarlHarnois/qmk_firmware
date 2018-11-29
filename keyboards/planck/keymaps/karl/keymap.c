@@ -1,9 +1,3 @@
-// INSTRUCTION:
-// docker run -e keymap=karl -e subproject=rev4 -e keyboard=planck --rm -v $('pwd'):/qmk:rw edasque/qmk_firmware
-// dfu-programmer atmega32u4 erase --force
-// dfu-programmer atmega32u4 flash .build/planck_rev4_karl.hex
-// dfu-programmer atmega32u4 reset
-
 #include "planck.h"
 #include "action_layer.h"
 
@@ -43,7 +37,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Lower
  * ,-----------------------------------------------------------------------------------.
- * |   ~  |   1  |   2  |   3  |   4  |   5  |   6  |   7  |   8  |   9  |   0  |  -   | 
+ * |   ~  |   1  |   2  |   3  |   4  |   5  |   6  |   7  |   8  |   9  |   0  |  -   |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * | ctrl |      | left | down |  up  |right | left | down |  up  |right |   |  |  \   |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
